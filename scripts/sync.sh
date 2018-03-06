@@ -1,0 +1,1 @@
+rsync -azP --delete --exclude=node_modules --exclude=.git testing-pupeteer/ ldd@45.77.147.125:~/Git/anime_rankings

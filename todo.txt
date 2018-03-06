@@ -1,0 +1,9 @@
+- copy to remote
+- delete TABLES, recreate them
+
+
+now, what you need is:
+a crontab -feasible thingy that keeps on saving stuff
+e.g
+cd thingy
+node crawler
