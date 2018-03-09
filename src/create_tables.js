@@ -12,7 +12,7 @@ CREATE TABLE anime_ranks(
   id SERIAL,
   score NUMERIC(4,2),
   rank int2,
-  date DATE,
+  date TIMESTAMP,
   FOREIGN KEY (id) REFERENCES  anime_titles(id)
 );
 `;
