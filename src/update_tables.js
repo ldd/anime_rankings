@@ -9,9 +9,10 @@ async function insertTitles(pool, data = []) {
 }
 
 async function insertRanks(pool, data = []) {
-  const ranks = data.map(({ id, score, rank }) => [id, score, rank]);
+  const now = new Date();
+  const ranks = data.map(({ id, score, rank }) => [id, score, rank, now]);
   const rankQuery =
-    "INSERT INTO anime_ranks(id, score, rank) VALUES %L ON CONFLICT DO NOTHING";
+    "INSERT INTO anime_ranks(id, score, rank, date) VALUES %L ON CONFLICT DO NOTHING";
   await pool.query(format(rankQuery, ranks));
 }
 
