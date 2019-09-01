@@ -28,10 +28,10 @@ If you only want to crawl things once, or have no need for a service:
 
   `gcloud compute scp --recurse git/anime_rankings/scripts worker@interceptor-01:~/git/anime_rankings`
 
-- dump database
+- [dump database](https://www.postgresql.org/docs/8.0/backup.html)
 
-  `pg_dump -W -F t $PG_USER > dump.tar`
+  `pg_dump $PG_USER > dump.sql`
 
-- restore from dump
+- [restore from dump](https://www.postgresql.org/docs/8.0/backup.html)
 
-  `pg_restore ~/backup/dump.tar -c -U $PG_USER --no-owner`
+  `psql $PG_USER < dump.sql`
