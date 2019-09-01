@@ -17,7 +17,7 @@ sudo apt install -y gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 libc
 #add a user for postgres
 # https://askubuntu.com/questions/94060/run-adduser-non-interactively
 sudo adduser --gecos '' ${PG_USER}
-# changing a password non-interactively on ubuntu https://obviate.io/2012/02/16/non-interactive-unattended-password-change-under-ubuntu/
+# change a password non-interactively on ubuntu https://obviate.io/2012/02/16/non-interactive-unattended-password-change-under-ubuntu/
 echo -e "${PG_USER}:${PG_PASSWORD}" | sudo chpasswd
 sudo usermod -aG sudo ${PG_USER}
 
@@ -38,9 +38,8 @@ sudo chmod 644 /etc/systemd/system/anime_rankings.service
 sudo cp anime_rankings.timer /etc/systemd/system/anime_rankings.timer
 sudo chmod 644 /etc/systemd/system/anime_rankings.timer
 
-# start systemd service and timer
-sudo systemctl enable anime_rankings
-sudo systemctl start anime_rankings
+# only start systemd timer
+# https://askubuntu.com/questions/1083537/how-do-i-properly-install-a-systemd-timer-and-service
 sudo systemctl enable anime_rankings.timer
 sudo systemctl start anime_rankings.timer
 
