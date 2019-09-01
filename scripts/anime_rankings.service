@@ -1,0 +1,11 @@
+[Unit]
+Description=updating the daily anime rankings
+After=network.target
+
+[Service]
+Environment=PGPASSWORD=PG_PASSWORD
+User=PG_USER
+ExecStart=/usr/bin/node /home/PG_USER/git/anime_rankings/crawler.js
+
+[Install]
+WantedBy=multi-user.target
